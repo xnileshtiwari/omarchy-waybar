@@ -72,7 +72,7 @@
     "on-click": "$TERMINAL -e btop"
   },
   "clock": {
-    "format": "{:L%A %H:%M}",
+    "format": "{:%I:%M %p %a}",
     "format-alt": "{:L%d %B %Y}",
     "tooltip": false,
     "on-click-right": "omarchy-cmd-tzupdate"
@@ -111,7 +111,7 @@
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",
-    "format-connected": "",
+    "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
     "on-click": "blueberry"
   },

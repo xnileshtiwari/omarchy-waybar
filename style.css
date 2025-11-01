@@ -57,8 +57,8 @@
 #taskbar {
   min-width: 12px;
   margin: 0 2px;
-  /* padding-left: 8px;
-  padding-right: 8px; */
+  padding-left: 8px;
+  padding-right: 8px;
   border-radius: 15px;
 }
 
@@ -79,7 +79,7 @@
 
 #taskbar button:hover {
   border-radius: 15px;
-  background-color: @foreground;
+  background-color: @background;
   
 }
 
