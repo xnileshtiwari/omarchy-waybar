@@ -1,0 +1,165 @@
+@import "../omarchy/current/theme/waybar.css";
+
+* {
+  background-color: rgba(0, 0, 0, 0);
+
+  border: none;
+  min-height: 0;
+  font-family: 'CaskaydiaMono Nerd Font';
+  font-size: 12px;
+}
+
+.modules-left {
+  margin-left: 0px;
+  background-color: @foreground;
+  padding: 3px;
+  border-radius: 15px;
+}
+
+.modules-right {
+  margin-right: 0px;
+  background-color: @foreground;
+  padding: 3px;
+  border-radius: 15px;
+}
+
+.modules-center {
+  background-color: @foreground;
+  padding: 3px;
+  border-radius: 15px;
+}
+
+#workspaces button {
+  transition: all 0.4s ease;
+  background-color: @background;
+  color: @foreground;
+  margin: 0 1.5px;
+  min-width: 9px;
+  border-radius: 15px;
+}
+
+#workspaces button.active {
+  background-color: @background;
+  color: @foreground;
+  min-width: 40px;
+  border-radius: 15px;
+}
+
+#workspaces button:hover {
+  border-radius: 15px;
+  background-color: @foreground;
+}
+
+#workspaces button.empty {
+  opacity: 0.7;
+}
+
+#taskbar {
+  min-width: 12px;
+  margin: 0 2px;
+  /* padding-left: 8px;
+  padding-right: 8px; */
+  border-radius: 15px;
+}
+
+
+#taskbar button{
+  transition: all 0.3s ease;
+  background-color: @background;
+  border-radius: 15px;
+  margin: 0 1.5px;
+}
+
+#taskbar button.active {
+  background-color: @background;
+  border-radius: 15px;
+  min-width: 25px;
+  padding-left: 18px;
+}
+
+#taskbar button:hover {
+  border-radius: 15px;
+  background-color: @foreground;
+  
+}
+
+
+
+#temperature,
+#backlight,
+#memory,
+#tray,
+#custom-idle,
+#cpu,
+#battery,
+#network,
+#clock,
+#window,
+#bluetooth,
+#pulseaudio,
+#custom-omarchy,
+#custom-screenrecording-indicator,
+#power-profiles-daemon,
+#custom-update,
+#custom-power {
+  background-color: @background;
+  color: @foreground;
+  min-width: 12px;
+  margin: 0 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 15px;
+}
+
+#custom-expand-icon {
+  margin-right: 7px;
+}
+
+tooltip {
+  padding: 2px;
+  background-color: @foreground;
+  /* color: @foreground; */
+  border-radius: 15px;
+  border: solid 1px @foreground;
+}
+
+#custom-update {
+  font-size: 10px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#custom-screenrecording-indicator {
+  min-width: 12px;
+  margin-left: 8.75px;
+  font-size: 10px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: #a55555;
+}
+
+#custom-power {
+  padding-left: 12px;
+}
+
+/* #window {
+  background-color: @foreground;
+  color: @background;
+  border-radius: 15px;
+} */
+
+#custom-idle {
+  padding-left: 10px;
+}
+
+#custom-omarchy {
+  padding-left: 8px;
+}
+
+#tray menu {
+  background-color: @background;
+  color: @foreground;
+}
