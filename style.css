@@ -11,20 +11,20 @@
 
 .modules-left {
   margin-left: 0px;
-  background-color: @foreground;
+  background-color: rgba(249, 236, 232, 0.9);
   padding: 3px;
   border-radius: 15px;
 }
 
 .modules-right {
   margin-right: 0px;
-  background-color: @foreground;
+  background-color: rgba(249, 236, 232, 0.9);
   padding: 3px;
   border-radius: 15px;
 }
 
 .modules-center {
-  background-color: @foreground;
+  background-color: rgba(249, 236, 232, 0.9);
   padding: 3px;
   border-radius: 15px;
 }
@@ -57,8 +57,8 @@
 #taskbar {
   min-width: 12px;
   margin: 0 2px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 9px;
+  padding-right: 1px;
   border-radius: 15px;
 }
 
@@ -68,13 +68,6 @@
   background-color: @background;
   border-radius: 15px;
   margin: 0 1.5px;
-}
-
-#taskbar button.active {
-  background-color: @background;
-  border-radius: 15px;
-  min-width: 25px;
-  padding-left: 18px;
 }
 
 #taskbar button:hover {
@@ -117,7 +110,7 @@
 
 tooltip {
   padding: 2px;
-  background-color: @foreground;
+  background-color: @background;
   /* color: @foreground; */
   border-radius: 15px;
   border: solid 1px @foreground;
