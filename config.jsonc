@@ -14,8 +14,7 @@
   "modules-left": [
     "hyprland/workspaces", 
     "custom/update", 
-    "custom/screenrecording-indicator",
-    "wlr/taskbar"
+    "custom/screenrecording-indicator"
   ],
   "modules-right": [
     "network",
