@@ -3,18 +3,22 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "height": 10,
+  "height": 32,
   "margin-top": 3,
   "margin-left": 6,
   "margin-right": 6,
   "margin-bottom": 3,
   "modules-center": [
+    "custom/pomodoro-count",
     "clock"
   ],
   "modules-left": [
     "hyprland/workspaces", 
     "custom/update", 
-    "custom/screenrecording-indicator"
+    "custom/screenrecording-indicator",
+    "custom/pomodoro",
+    "custom/tasks"
+
   ],
   "modules-right": [
     "network",
@@ -56,7 +60,30 @@
     "on-click-right": "omarchy-launch-terminal",
     "tooltip-format": "Omarchy Menu\nSuper + O"
   },
-  "custom/update": {
+   
+  "custom/tasks": {
+  "exec": "/home/nilesh/.local/bin/tasks-waybar.bash",
+  "interval": 30,
+  "format": "",
+  "tooltip-format": "Task: {}",
+  "on-click": "$TERMINAL -e bash -lc \"# launch your todo CLI here\""
+  },
+  
+   "custom/pomodoro-count": {
+  "exec": "~/.local/bin/pomo-count-today",
+  "interval": 60,
+  "format": " {}",
+  "tooltip-format": "Pomodoros today: {}",
+  "on-click-right": "/usr/bin/i3-gnome-pomodoro start"
+   },
+  
+  "custom/pomodoro": {
+  "exec": "/usr/bin/i3-gnome-pomodoro status --show-seconds || echo 'Idle'",
+  "interval": 1,
+  "format": " {}",
+  "on-click": "sh -c 'pgrep -x gnome-pomodoro >/dev/null || (gnome-pomodoro & disown); /usr/bin/i3-gnome-pomodoro start'"
+   },
+ "custom/update": {
     "format": "",
     "exec": "omarchy-update-available",
     "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
@@ -152,24 +179,6 @@
     "interval": 5,
     "tooltip-format": "{percentage}%"
   },
-  "temperature": {
-    "format": " {temperatureC}°C",
-    "interval": 2,
-    "tooltip": false    
-  },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": ["", ""],
-    "tooltip": false,
-    "scroll-step": 5
-  },
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "icon-size": 15
-  },
   "custom/power": {
     "format": " ",
     "on-click": "omarchy-menu system",
@@ -185,16 +194,5 @@
     "balanced": " ",
     "power-saver": " "
     }
-  },
-  "hyprland/window": {
-    "format": "{title}",
-    "icon": true,
-    "max-length": 25,
-    "icon-size": 15
-  },
-  "custom/idle": {
-    "format": " ",
-    "tooltip": false,
-    "on-click": "omarchy-toggle-idle"
   }
 }
