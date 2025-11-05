@@ -75,28 +75,6 @@
   opacity: 0.7;
 }
 
-#taskbar {
-  min-width: 12px;
-  margin: 0 2px;
-  padding-left: 9px;
-  padding-right: 1px;
-  border-radius: 15px;
-}
-
-
-#taskbar button{
-  transition: all 0.3s ease;
-  background-color: @background;
-  border-radius: 15px;
-  margin: 0 1.5px;
-}
-
-#taskbar button:hover {
-  border-radius: 15px;
-  background-color: @background;
-  
-}
-
 
 
 #temperature,
@@ -176,14 +154,6 @@ tooltip {
   color: @background;
   border-radius: 15px;
 } */
-
-#custom-idle {
-  padding-left: 10px;
-}
-
-#custom-omarchy {
-  padding-left: 8px;
-}
 
 #tray menu {
   background-color: @background;
