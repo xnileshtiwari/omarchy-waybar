@@ -104,9 +104,9 @@
     "on-click-right": "omarchy-cmd-tzupdate"
   },
   "network": {
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨 "],
     "format": "{icon}",
-    "format-wifi": "{icon}   {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
     "format-disconnected": "󰤮",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)",
