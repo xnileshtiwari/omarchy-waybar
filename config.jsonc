@@ -65,8 +65,7 @@
   "exec": "~/.config/waybar/scripts/task-list.sh",
   "interval": 1,
   "format": "  {}",
-  "tooltip-format": "{}",
-  "on-click": "$TERMINAL -e bash -lc \"# launch your todo CLI here\""
+  "tooltip-format": "{}"
   },
   
    "custom/pomodoro-count": {
