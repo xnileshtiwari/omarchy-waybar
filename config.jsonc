@@ -25,7 +25,6 @@
     "bluetooth",
     "tray",
     "power-profiles-daemon",
-    "memory",
     "cpu",
     "pulseaudio",
     "battery",
@@ -98,7 +97,7 @@
   },
   "clock": {
     "format": "󱑍  {:%I:%M %a   󰃭 %d }",
-    "format-alt": "{:L%d %B %Y}",
+    "format-alt": "󰃭 {:L%d %B %Y}",
     "tooltip": false,
     "on-click-right": "omarchy-cmd-tzupdate"
   },
