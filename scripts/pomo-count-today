@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+DB="$HOME/.local/share/gnome-pomodoro/database.sqlite"
+
+# If sqlite3 missing or DB empty/missing, print 0.
+if ! command -v sqlite3 >/dev/null 2>&1; then echo 0; exit 0; fi
+if [ ! -s "$DB" ]; then echo 0; exit 0; fi
+
+# Count today's completed pomodoros.
+sqlite3 -readonly -cmd ".timeout 1000" "$DB" \
+"SELECT COALESCE(COUNT(*),0)
+ FROM entries
+ WHERE \"state-name\"='pomodoro'
+   AND date(\"datetime-local-string\") = date('now','localtime');" 2>/dev/null \
+| tr -d '[:space:]' || echo 0

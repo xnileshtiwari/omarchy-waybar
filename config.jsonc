@@ -57,22 +57,22 @@
   "custom/omarchy": {
     "format": "<span font='omarchy'>\ue900</span>",
     "on-click": "omarchy-menu",
-    "on-click-right": "omarchy-launch-terminal",
+    "on-click-right": "xdg-terminal-exec",
     "tooltip-format": "Omarchy Menu\nSuper + O"
   },
    
   "custom/tasks": {
-  "exec": "/home/nilesh/.local/bin/tasks-waybar.bash",
-  "interval": 30,
-  "format": "",
-  "tooltip-format": "Task: {}",
+  "exec": "~/.config/waybar/scripts/task-list.sh",
+  "interval": 1,
+  "format": "  {}",
+  "tooltip-format": "{}",
   "on-click": "$TERMINAL -e bash -lc \"# launch your todo CLI here\""
   },
   
    "custom/pomodoro-count": {
-  "exec": "~/.local/bin/pomo-count-today",
+  "exec": "~/.config/waybar/scripts/pomo-count-today",
   "interval": 60,
-  "format": " {}",
+  "format": " {}",
   "tooltip-format": "Pomodoros today: {}",
   "on-click-right": "/usr/bin/i3-gnome-pomodoro start"
    },
@@ -80,7 +80,7 @@
   "custom/pomodoro": {
   "exec": "/usr/bin/i3-gnome-pomodoro status --show-seconds || echo 'Idle'",
   "interval": 1,
-  "format": " {}",
+  "format": " {}",
   "on-click": "sh -c 'pgrep -x gnome-pomodoro >/dev/null || (gnome-pomodoro & disown); /usr/bin/i3-gnome-pomodoro start'"
    },
  "custom/update": {
@@ -95,10 +95,10 @@
   "cpu": {
     "interval": 5,
     "format": "󰍛 {usage}%",
-    "on-click": "$TERMINAL -e btop"
+    "on-click": "xdg-terminal-exec btop"
   },
   "clock": {
-    "format": "{:%I:%M %p %a}",
+    "format": "󱑍  {:%I:%M %a   󰃭 %d }",
     "format-alt": "{:L%d %B %Y}",
     "tooltip": false,
     "on-click-right": "omarchy-cmd-tzupdate"
@@ -129,6 +129,7 @@
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
     "interval": 5,
+    "on-click": "omarchy-powerprofiles-list",
     "states": {
       "warning": 20,
       "critical": 10
@@ -143,7 +144,7 @@
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "on-click": "$TERMINAL --class=Wiremix -e wiremix",
+    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Wiremix -e wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 2,
