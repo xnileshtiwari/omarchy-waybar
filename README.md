@@ -23,7 +23,7 @@ This project integrates with **Taskwarrior** (shows TODO list and active task) a
 ![Dark theme preview](assets/screenshot-2025-11-13_17-20-38.png)
 
 ![Light theme preview](assets/screenshot-2025-11-13_17-21-30.png)
-```
+
 
 
 
