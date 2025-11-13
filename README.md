@@ -27,8 +27,6 @@ This project integrates with **Taskwarrior** (shows TODO list and active task) a
 
 
 
----
-
 ## Quick start
 
 > These are conservative instructions that work for most setups. The repository contains a `scripts/` folder and configuration files — copy or adapt those into your Waybar configuration.
