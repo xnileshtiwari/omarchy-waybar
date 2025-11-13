@@ -22,13 +22,13 @@ This project integrates with **Taskwarrior** (shows TODO list and active task) a
 
 Place screenshots in the `screenshots/` folder and reference them here. Example placeholders (add your actual images):
 
-* `screenshots/dark.png` — Dark theme preview
+* `assets/dark.png` — Dark theme preview
 * `screenshots/light.png` — Light theme preview
 
 ```markdown
-![Dark theme preview](screenshots/dark.png)
+![Dark theme preview](assets/screenshot-2025-11-13_17-20-38.png)
 
-![Light theme preview](screenshots/light.png)
+![Light theme preview](assets/screenshot-2025-11-13_17-21-30.png)
 ```
 
 (When you add your images to the `screenshots/` folder the previews above will render on GitHub.)
