@@ -9,7 +9,7 @@ This project integrates with **Taskwarrior** (shows TODO list and active task) a
 
 ## Key features
 
-* Shows Taskwarrior TODO items directly in Waybar (quick glance for active and upcoming tasks).
+* Shows Taskwarrior TODO items directly in Waybar (quick glance for active tasks).
 * Integrates with GNOME Pomodoro: a tomato icon shows the timer state and remaining time.
 * **Double-clicking the tomato** starts a Pomodoro session (configurable behavior).
 * When you mark a Taskwarrior task as **active**, it appears on the Waybar for quick context.
@@ -22,8 +22,8 @@ This project integrates with **Taskwarrior** (shows TODO list and active task) a
 
 Place screenshots in the `screenshots/` folder and reference them here. Example placeholders (add your actual images):
 
-* `assets/dark.png` — Dark theme preview
-* `screenshots/light.png` — Light theme preview
+* `assets/screenshot-2025-11-13_17-20-38.png` — Dark theme preview
+* `assets/screenshot-2025-11-13_17-21-30.png` — Light theme preview
 
 ```markdown
 ![Dark theme preview](assets/screenshot-2025-11-13_17-20-38.png)
@@ -31,7 +31,6 @@ Place screenshots in the `screenshots/` folder and reference them here. Example 
 ![Light theme preview](assets/screenshot-2025-11-13_17-21-30.png)
 ```
 
-(When you add your images to the `screenshots/` folder the previews above will render on GitHub.)
 
 ---
 
