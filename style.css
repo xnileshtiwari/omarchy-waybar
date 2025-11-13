@@ -119,13 +119,26 @@
   margin-right: 7px;
 }
 
+
+
+
+/* This styles the tooltip box */
 tooltip {
   padding: 2px;
   background-color: @background;
-  /* color: @foreground; */
+  color: @foreground; /* This line doesn't always work for the text */
   border-radius: 15px;
   border: solid 1px @foreground;
 }
+
+/* ADD THIS BLOCK to style the text INSIDE the box */
+tooltip label {
+  color: @foreground;
+}
+
+
+
+
 
 #custom-update {
   font-size: 10px;
