@@ -157,12 +157,6 @@ Contributions, issues, and feature requests are welcome.
 
 ---
 
-## License
-
-Add your preferred license file to the repo (e.g. `LICENSE`). If you don't have one yet, consider `MIT`.
-
----
-
 ## Notes
 
 * This README is intentionally generic to support a variety of Waybar setups. If the implementation in `scripts/` differs from what is described above, adjust the `exec` and `on-click` hooks to match the actual script names and interfaces present in this repository.
