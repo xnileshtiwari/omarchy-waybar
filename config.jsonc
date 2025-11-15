@@ -175,7 +175,7 @@
   },
   "memory": {
     "format": " {used}GiB",
-    "interval": 5,
+    "interval": 1,
     "tooltip-format": "{percentage}%"
   },
   "custom/power": {
