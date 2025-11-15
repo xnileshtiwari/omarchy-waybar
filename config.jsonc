@@ -27,8 +27,7 @@
     "power-profiles-daemon",
     "cpu",
     "pulseaudio",
-    "battery",
-    "custom/power"
+    "battery"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
