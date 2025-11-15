@@ -26,7 +26,7 @@
     "tray",
     "power-profiles-daemon",
     "cpu",
-    "custom/memory",
+    "memory",
     "pulseaudio",
     "battery"
   ],
