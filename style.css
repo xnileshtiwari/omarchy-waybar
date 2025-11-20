@@ -1,174 +1,374 @@
 @import "../omarchy/current/theme/waybar.css";
 
+@define-color rosewater     #f5e0dc;
+@define-color flamingo      #f2cdcd;
+@define-color pink          #f5c2e7;
+@define-color mauve         #cba6f7;
+@define-color red           #f38ba8;
+@define-color maroon        #eba0ac;
+@define-color peach         #fab387;
+@define-color yellow        #f9e2af;
+@define-color green         #a6e3a1;
+@define-color teal          #94e2d5;
+@define-color sky           #89dceb;
+@define-color sapphire      #74c7ec;
+@define-color blue          #89b4fa;
+@define-color lavender      #b4befe;
+@define-color text          @foreground;
+@define-color subtext1      @text;
+@define-color subtext0      shade(@text, .9);
+@define-color overlay2      shade(@text, .8);
+@define-color overlay1      shade(@text, .7);
+@define-color overlay0      shade(@text, .6);
+@define-color surface2      shade(@text, .5);
+@define-color surface1      shade(@text, .4);
+@define-color surface0      shade(@text, .3);
+@define-color base          shade(@text, .2);
+@define-color mantle        @crust;
+@define-color crust         @background;
+
+/*
+	br - border
+	bg - background
+	fg - foreground
+*/
+
+/* main colors */
+
+@define-color accent        @text;
+@define-color main-br       @subtext0;
+@define-color main-bg       @crust;
+@define-color main-fg       @text;
+@define-color hover-bg      @base;
+@define-color hover-fg      alpha(@main-fg, 0.75);
+@define-color outline       shade(@main-bg, 0.5);
+
+/* module colors */
+
+@define-color workspaces    @mantle;
+@define-color temperature   @mantle;
+@define-color memory        @base;
+@define-color cpu           @surface0;
+@define-color time          @surface0;
+@define-color date          @base;
+@define-color tray          @mantle;
+@define-color volume        @mantle;
+@define-color backlight     @base;
+@define-color battery       @surface0;
+
+/* state colors */
+
+@define-color warning       @yellow;
+@define-color critical      @red;
+@define-color charging      @green;
+
+
+
 * {
-  background-color: rgba(0, 0, 0, 0);
-
-  border: none;
-  min-height: 0;
-  font-family: 'JetBrainsMonoNL Nerd Font';
-  font-size: 12px;
+	all: initial;
+	font-family: 'JetBrainsMono Nerd Font';
+	font-weight: bold;
+	font-size: 12px;
 }
 
-.modules-left {
-  margin-left: 0px;
-  background-color: rgba(249, 236, 232, 0.9);
-  padding: 3px;
-  border-radius: 15px;
-}
-
-.modules-right {
-  margin-right: 0px;
-  background-color: rgba(249, 236, 232, 0.9);
-  padding: 3px;
-  border-radius: 15px;
-}
-
-.modules-center {
-  background-color: rgba(249, 236, 232, 0.9);
-  padding: 3px;
-  border-radius: 15px;
-}
-
-#workspaces button {
-  transition: all 0.4s ease;
-  background-color: @background;
-  color: @foreground;
-  margin: 0 1.5px;
-  min-width: 9px;
-  border-radius: 15px;
-}
-
-#custom-pomodoro-count {
-  background-color: @background;
-  color: @foreground;
-  min-width: 12px;
-  margin: 0 2px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 15px;
-}
-#custom-tasks {
-  background-color: @background;
-  color: @foreground;
-  min-width: 12px;
-  margin: 0 2px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 15px;
-}
-
-
-#custom-pomodoro-count { font-weight: 600; }
-#workspaces button.active {
-  background-color: @background;
-  color: @foreground;
-  min-width: 40px;
-  border-radius: 15px;
-}
-
-#workspaces button:hover {
-  border-radius: 15px;
-  background-color: @foreground;
-}
-
-#workspaces button.empty {
-  opacity: 0.7;
-}
-
-
-
-#temperature,
-#backlight,
-#memory,
-#tray,
-#custom-idle,
-#cpu,
-#battery,
-#network,
-#clock,
-#window,
-#bluetooth,
-#pulseaudio,
-#custom-omarchy,
-#custom-screenrecording-indicator,
-#power-profiles-daemon,
-#custom-update,
-#custom-power {
-  background-color: @background;
-  color: @foreground;
-  min-width: 12px;
-  margin: 0 2px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 15px;
-}
-
-#custom-pomodoro { font-weight: 600; }
-#custom-pomodoro.paused { opacity: 0.7; border-bottom: 2px solid @foreground; }
-
-#custom-pomodoro {
-  background-color: @background;
-  color: @foreground;
-  min-width: 12px;
-  margin: 0 2px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 15px;
-}
-#custom-expand-icon {
-  margin-right: 7px;
-}
-
-
-
-
-/* This styles the tooltip box */
-tooltip {
-  padding: 2px;
-  background-color: @background;
-  color: @foreground; /* This line doesn't always work for the text */
-  border-radius: 15px;
-  border: solid 1px @foreground;
-}
-
-/* ADD THIS BLOCK to style the text INSIDE the box */
+#custom-user,
+#window label,
+#mpris,
 tooltip label {
-  color: @foreground;
+	font-weight: normal;
 }
 
-
-
-
-
-#custom-update {
-  font-size: 10px;
+#workspaces button.active label,
+#workspaces button.focused label,
+#custom-distro {
+	font-size: 20px;
 }
 
-.hidden {
-  opacity: 0;
+#custom-power_menu {
+	font-size: 18px;
 }
 
-#custom-screenrecording-indicator {
-  min-width: 12px;
-  margin-left: 8.75px;
-  font-size: 10px;
+#custom-left_div,
+#custom-left_inv,
+#custom-right_div,
+#custom-right_inv {
+	font-size: 22px;
 }
 
-#custom-screenrecording-indicator.active {
-  color: #a55555;
+.module {
+	margin-bottom: -1px;
 }
 
-#custom-power {
-  padding-left: 12px;
+#waybar {
+	background-color: shade(@background, 0.7);
+}
+#waybar > box {
+	margin: 4px;
+	background-color: alpha(@background, 0.7);
 }
 
-/* #window {
-  background-color: @foreground;
-  color: @background;
-  border-radius: 15px;
-} */
+button {
+	border-radius: 16px;
+	min-width: 16px;
+	padding: 0 10px;
+}
+button:hover {
+	background-color: alpha(@background, 0.1);
+	color: alpha(@forground, 0.1);
+}
 
-#tray menu {
-  background-color: @background;
-  color: @foreground;
+tooltip {
+	border: 2px solid @background;
+	border-radius: 10px;
+	background-color: @background;
+}
+tooltip > box {
+	padding: 0 6px;
+}
+/*--------------
+    username
+--------------*/
+
+#custom-user {
+	padding-right: 12px;
+}
+
+/*----------------
+    workspaces
+----------------*/
+
+#custom-left_div.1,
+#custom-right_div.1 {
+	color: @background;
+}
+#workspaces {
+	padding: 0 1px;
+	background-color: @background;
+}
+#workspaces button.active label,
+#workspaces button.focused label {
+	color: @forground;
+}
+
+/*------------------
+    window title
+------------------*/
+
+#window {
+	margin-left: 12px;
+}
+/*------------------
+    window count
+------------------*/
+
+#windowcount {
+	margin-right: 12px;
+}
+#windowcount label {
+	color: @hover-fg;
+}
+
+/*-----------------
+    temperature
+-----------------*/
+
+#custom-left_div.2 {
+	color: @temperature;
+}
+#temperature {
+	background-color: @temperature;
+}
+
+/*------------
+    memory
+------------*/
+
+#custom-left_div.3 {
+	background-color: @temperature;
+	color: @memory;
+}
+#memory {
+	background-color: @memory;
+}
+
+/*---------
+    cpu
+---------*/
+
+#custom-left_div.4 {
+	background-color: @memory;
+	color: @cpu;
+}
+#cpu {
+	background-color: @cpu;
+}
+#custom-left_inv.1 {
+	color: @cpu;
+}
+
+/*-----------------
+    distro icon
+-----------------*/
+
+#custom-left_div.5,
+#custom-right_div.2 {
+	color: @accent;
+}
+#custom-distro {
+	padding: 0 10px 0 5px;
+	background-color: @accent;
+	color: @main-bg;
+}
+
+/*--------------------
+    idle inhibitor
+--------------------*/
+
+#custom-right_inv.1 {
+	color: @time;
+}
+#idle_inhibitor {
+	background-color: @time;
+}
+
+/*----------
+    time
+----------*/
+
+#clock.time {
+	padding-right: 6px;
+	background-color: @time;
+}
+#custom-right_div.3 {
+	background-color: @date;
+	color: @time;
+}
+
+/*----------
+    date
+----------*/
+
+#clock.date {
+	padding-left: 6px;
+	background-color: @date;
+}
+#custom-right_div.4 {
+	background-color: @tray;
+	color: @date;
+}
+
+/*-----------------
+    system tray
+-----------------*/
+
+#network {
+	background-color: @tray;
+	padding: 0 6px 0 4px;
+}
+#bluetooth {
+	background-color: @tray;
+	padding: 0 5px;
+}
+#custom-system_update {
+	background-color: @tray;
+	padding: 0 8px 0 2px;
+}
+#custom-right_div.5 {
+	color: @tray;
+}
+/*----------------
+    media info
+----------------*/
+
+#mpris {
+	padding: 0 12px;
+}
+
+/*------------
+    volume
+------------*/
+
+#custom-left_div.6 {
+	color: @volume;
+}
+#pulseaudio,
+#wireplumber {
+	background-color: @volume;
+}
+
+/*----------------
+    brightness
+----------------*/
+
+#custom-left_div.7 {
+	background-color: @volume;
+	color: @backlight;
+}
+#backlight {
+	background-color: @backlight;
+}
+
+/*-------------
+    battery
+-------------*/
+
+#custom-left_div.8 {
+	background-color: @backlight;
+	color: @battery;
+}
+#battery {
+	background-color: @battery;
+}
+#custom-left_inv.2 {
+	color: @battery;
+}
+
+/*----------------
+    power menu
+----------------*/
+
+#custom-power_menu {
+	border-radius: 16px;
+	padding: 0 19px 0 16px;
+	color: @accent;
+}
+#custom-power_menu:hover {
+	background-color: @hover-bg;
+}
+#custom-trigger:hover,
+#idle_inhibitor:hover,
+#clock.date:hover,
+#network:hover,
+#bluetooth:hover,
+#custom-system_update:hover,
+#mpris:hover,
+#pulseaudio:hover,
+#wireplumber:hover {
+	color: @hover-fg;
+}
+
+/* inactive state */
+#idle_inhibitor.deactivated,
+#mpris.paused,
+#pulseaudio.output.muted,
+#pulseaudio.input.source-muted,
+#wireplumber.muted {
+	color: @hover-fg;
+}
+
+#memory.warning,
+#cpu.warning,
+#battery.warning {
+	color: @warning;
+}
+
+#temperature.critical,
+#memory.critical,
+#cpu.critical,
+#battery.critical {
+	color: @critical;
+}
+
+#battery.charging {
+	color: @charging;
 }
