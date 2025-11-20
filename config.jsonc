@@ -1,197 +1,436 @@
-{
-  "reload_style_on_change": true,
-  "layer": "top",
-  "position": "top",
-  "spacing": 0,
-  "height": 32,
-  "margin-top": 3,
-  "margin-left": 6,
-  "margin-right": 6,
-  "margin-bottom": 3,
-  "modules-center": [
-    "custom/pomodoro-count",
-    "clock"
-  ],
-  "modules-left": [
-    "hyprland/workspaces", 
-    "custom/update", 
-    "custom/screenrecording-indicator",
-    "custom/pomodoro",
-    "custom/tasks"
 
+{
+  /*-------------
+	    options
+	-------------*/
+  "layer": "top",
+  // "position":
+  "height": 0,
+  "width": 0,
+  "margin": 0,
+  "spacing": 0,
+  // "name":
+  "mode": "dock",
+  "reload_style_on_change": true,
+  /*------------
+	    layout
+	------------*/
+  "modules-left": [
+    "group/user",
+    "custom/left_div#1",
+    "hyprland/workspaces",
+    "custom/right_div#1",
+    "hyprland/window"
   ],
-  "modules-right": [
+  "modules-center": [
+    "hyprland/windowcount",
+    "custom/left_div#2",
+    "temperature",
+    "custom/left_div#3",
+    "memory",
+    "custom/left_div#4",
+    "cpu",
+    "custom/left_inv#1",
+    "custom/left_div#5",
+    "custom/distro",
+    "custom/right_div#2",
+    "custom/right_inv#1",
+    "idle_inhibitor",
+    "clock#time",
+    "custom/right_div#3",
+    "clock#date",
+    "custom/right_div#4",
     "network",
     "bluetooth",
-    "tray",
-    "power-profiles-daemon",
-    "cpu",
-    "memory",
-    "pulseaudio",
-    "battery"
+    "custom/update",
+    "custom/right_div#5"
   ],
-  "hyprland/workspaces": {
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9"
-    },
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
-    }
+  "modules-right": [
+    "mpris",
+    "custom/left_div#6",
+    "group/pulseaudio",
+    "custom/left_div#7",
+    "backlight",
+    "custom/left_div#8",
+    "battery",
+    "custom/left_inv#2",
+    "custom/power_menu"
+  ],
+  // module left
+  "group/user": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/trigger",
+      "custom/user"
+    ],
+    "drawer": {}
   },
-  "custom/omarchy": {
-    "format": "<span font='omarchy'>\ue900</span>",
+  "custom/trigger": {
+    "format": "󰍜",
     "on-click": "omarchy-menu",
     "on-click-right": "xdg-terminal-exec",
-    "tooltip-format": "Omarchy Menu\nSuper + O"
+    "min-length": 4,
+    "max-length": 4,
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
   },
-   
-  "custom/tasks": {
-  "exec": "~/.config/waybar/scripts/task-list.sh",
-  "interval": 1,
-  "format": "  {}",
-  "tooltip-format": "{}"
+  "custom/user": {
+    "exec": "id -un",
+    "format": "{}",
+    "tooltip": false
   },
-  
-   "custom/pomodoro-count": {
-  "exec": "~/.config/waybar/scripts/pomo-count-today",
-  "interval": 60,
-  "format": " {}",
-  "tooltip-format": "Pomodoros today: {}",
-  "on-click-right": "/usr/bin/i3-gnome-pomodoro start"
-   },
-  
-  "custom/pomodoro": {
-  "exec": "/usr/bin/i3-gnome-pomodoro status --show-seconds || echo 'Idle'",
-  "interval": 1,
-  "format": " {}",
-  "on-click": "sh -c 'pgrep -x gnome-pomodoro >/dev/null || (gnome-pomodoro & disown); /usr/bin/i3-gnome-pomodoro start'"
-   },
- "custom/update": {
-    "format": "",
-    "exec": "omarchy-update-available",
-    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
-    "tooltip-format": "Omarchy update available",
-    "signal": 7,
-    "interval": 3600
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 5
+    },
+    "workspace-taskbar": {
+      // "enable": true,
+      // "update-active-window":
+      // "format": "{}"
+      // "icon-size":
+      // "icon-theme":
+      // "orientation":
+      // "ignore-list":
+      // "on-click-window":
+    },
+    "on-scroll-up": "hyprctl dispatch workspace +1",
+    "on-scroll-down": "hyprctl dispatch workspace -1",
+    "cursor": true
   },
-
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "": "Desktop",
+      "alacritty": "Terminal",
+      "ghostty": "Terminal",
+      "kitty": "Terminal",
+      "zsh": "Terminal",
+      "~": "Terminal"
+    },
+    "swap-icon-label": false
+  },
+  //module right
+  "hyprland/windowcount": {
+    "format": "[{}]",
+    "swap-icon-label": false
+  },
+  "temperature": {
+    "thermal-zone": 1,
+    "critical-threshold": 90,
+    "interval": 10,
+    "format-critical": "󰀦 {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "󱃃",
+      "󰔏",
+      "󱃂"
+    ],
+    "min-length": 8,
+    "max-length": 8,
+    "tooltip-format": "Temp in Fahrenheit: {temperatureF}°F"
+  },
+  "memory": {
+    "interval": 10,
+    "format": "󰘚 {percentage}%",
+    "format-warning": "󰀧 {percentage}%",
+    "format-critical": "󰀧 {percentage}%",
+    // "format-icons":
+    // "rotate":
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "min-length": 7,
+    "max-length": 7,
+    "on-click": "xdg-terminal-exec btop",
+    "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB"
+  },
   "cpu": {
-    "interval": 5,
+    "interval": 10,
     "format": "󰍛 {usage}%",
+    "format-warning": "󰀨 {usage}%",
+    "format-critical": "󰀨 {usage}%",
+    "min-length": 7,
+    "max-length": 7,
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
     "on-click": "xdg-terminal-exec btop"
   },
-  "clock": {
-    "format": "󱑍  {:%I:%M %a   󰃭 %d }",
-    "format-alt": "󰃭 {:L%d %B %Y}",
-    "tooltip": false,
-    "on-click-right": "omarchy-cmd-tzupdate"
+  "custom/distro": {
+    "format": "󰣇",
+    "tooltip": false
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰈈",
+      "deactivated": "󰈉"
+    },
+    "min-length": 3,
+    "max-length": 3,
+    "tooltip-format-activated": "Keep Screen On: <span text_transform='capitalize'>{status}</span>",
+    "tooltip-format-deactivated": "Keep Screen On: <span text_transform='capitalize'>{status}</span>",
+    "start-activated": false
+  },
+  "clock#time": {
+    "format": "{:%H:%M}",
+    "min-length": 5,
+    "max-length": 5,
+    "tooltip-format": "Standard Time: {:%I:%M %p}"
+  },
+  /*--------------
+	    calendar
+	--------------*/
+  "clock#date": {
+    "format": "󰸗 {:%m-%d}",
+    "min-length": 8,
+    "max-length": 8,
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 6,
+      "format": {
+        "months": "<span alpha='100%'><b>{}</b></span>",
+        "days": "<span alpha='90%'>{}</span>",
+        "weekdays": "<span alpha='80%'><i>{}</i></span>",
+        "today": "<span alpha='100%'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click": "mode"
+    }
   },
   "network": {
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨 "],
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
     "format": "{icon}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
     "format-disconnected": "󰤮",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)  {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "min-length": 2,
+    "max-length": 2,
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
     "on-click": "omarchy-launch-wifi"
   },
-  "battery": {
-    "format": "{capacity}% {icon}",
-    "format-discharging": "{icon} {capacity}%",
-    "format-charging": "{icon} {capacity}%",
-    "format-plugged": "",
-    "format-icons": {
-      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "min-length": 2,
+    "max-length": 2,
+    "on-click": "blueberry"
+  },
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 21600
+  },
+  //module center
+  "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+    "tooltip-format": "Playing: {title} - {artist}",
+    "tooltip-format-paused": "Paused: {title} - {artist}",
+    "player-icons": {
+      "default": "󰐊"
     },
-    "format-full": "󰂅",
-    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
-    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
-    "interval": 5,
-    "on-click": "omarchy-powerprofiles-list",
+    "status-icons": {
+      "paused": "󰏤"
+    },
+    "max-length": 1000
+  },
+  "group/pulseaudio": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio#output",
+      "pulseaudio#input"
+    ],
+    "drawer": {
+      "transition-left-to-right": false
+    }
+  },
+  /*-------------------
+	    output device
+	-------------------*/
+  "pulseaudio#output": {
+    "format": "{icon} {volume}%",
+    "format-muted": "{icon} {volume}%",
+    "format-icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ],
+      "default-muted": "󰝟",
+      "headphone": "󰋋",
+      "headphone-muted": "󰟎",
+      "headset": "󰋎",
+      "headset-muted": "󰋐"
+    },
+    "min-length": 7,
+    "max-length": 7,
+    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Wiremix -e wiremix",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Output Device: {desc}",
+    "scroll-step": 5,
+    "max-volume": 150
+  },
+  /*----------------
+	    microphone
+	----------------*/
+  "pulseaudio#input": {
+    "format": "{format_source}",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 {volume}%",
+    "min-length": 7,
+    "max-length": 7,
+    "scroll-step": 5,
+    "on-click-right": "pamixer --default-source -t",
+    "tooltip-format": "Input Device: {desc}"
+  },
+  "backlight": {
+    // "interval":
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "scroll-step": 5,
+    "min-length": 7,
+    "max-length": 7,
+    "tooltip": false
+  },
+  "battery": {
     "states": {
       "warning": 20,
       "critical": 10
-    }
-  },
-  "bluetooth": {
-    "format": " ON",
-    "format-disabled": "󰂲",
-    "format-connected": "󰂱",
-    "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "blueberry"
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Wiremix -e wiremix",
-    "on-click-right": "pamixer -t",
-    "tooltip-format": "Playing at {volume}%",
-    "scroll-step": 2,
-    "format-muted": "",
-    "format-icons": {
-      "default": ["", "", ""]
-    }
-  },
-  "group/tray-expander": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 600,
-      "children-class": "tray-group-item"
     },
-    "modules": ["custom/expand-icon", "tray"]
+    "format": "{icon} {capacity}%",
+    "format-time": "{H} hr {M} min",
+    "format-icons": [
+      "󰂎",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "on-click": "omarchy-menu power",
+    "format-charging": "󰉁 {capacity}%",
+    "min-length": 7,
+    "max-length": 7,
+    "tooltip-format": "Discharging: {time}",
+    "tooltip-format-charging": "Charging: {time}",
+    "events": {
+      "on-discharging-warning": "notify-send 'Battery Low (20%)' -i 'battery-020'",
+      "on-discharging-critical": "notify-send 'Battery Critical (10%)' -u critical -i 'battery-010'"
+    }
   },
-  "custom/expand-icon": {
-    "format": " ",
-    "tooltip": false
-  },
-  "custom/screenrecording-indicator": {
-    "on-click": "omarchy-cmd-screenrecord",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
-    "signal": 8,
-    "return-type": "json"
-  },
-  "tray": {
-    "icon-size": 12,
-    "spacing": 12
-  },
-  "memory": {
-    "format": " {used}GiB",
-    "interval": 1,
-    "tooltip-format": "{percentage}%"
-  },
-  "custom/power": {
-    "format": " ",
+  "custom/power_menu": {
+    "format": "󰤄",
     "on-click": "omarchy-menu system",
     "tooltip-format": "Power Menu"
   },
-  "power-profiles-daemon": {
-  "format": "{icon}",
-  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-  "tooltip": true,
-  "format-icons": {
-    "default": "",
-    "performance": "",
-    "balanced": " ",
-    "power-saver": " "
-    }
+  /*-------------------
+	    left dividers
+	-------------------*/
+  "custom/left_div#1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_div#2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_div#3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_div#4": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_div#5": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_div#6": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_div#7": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_div#8": {
+    "format": "",
+    "tooltip": false
+  },
+  // inverse
+  "custom/left_inv#1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_inv#2": {
+    "format": "",
+    "tooltip": false
+  },
+  /*--------------------
+	    right dividers
+	--------------------*/
+  "custom/right_div#1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right_div#2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right_div#3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right_div#4": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right_div#5": {
+    "format": "",
+    "tooltip": false
+  },
+  // inverse
+  "custom/right_inv#1": {
+    "format": "",
+    "tooltip": false
   }
 }
