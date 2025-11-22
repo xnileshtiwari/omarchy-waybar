@@ -93,7 +93,7 @@
   "cpu": {
     "interval": 5,
     "format": "󰍛 {usage}%",
-    "on-click": "xdg-terminal-exec btop"
+    "on-click": "omarchy-launch-or-focus-tui btop"
   },
   "clock": {
     "format": "󱑍  {:%I:%M %a   󰃭 %d }",
@@ -142,7 +142,7 @@
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Wiremix -e wiremix",
+    "on-click": "omarchy-launch-or-focus-tui wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 2,
