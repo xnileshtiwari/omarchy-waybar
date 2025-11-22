@@ -25,7 +25,7 @@ This project integrates with **Taskwarrior** (shows TODO list and active task) a
 ![Light theme preview](assets/screenshot-2025-11-13_17-21-30.png)
 
 
-
+---
 
 ## Quick start
 
