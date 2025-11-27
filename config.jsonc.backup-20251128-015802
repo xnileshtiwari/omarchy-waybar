@@ -34,7 +34,7 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "default": "\uea71",
+      "default": "",
       "1": "1",
       "2": "2",
       "3": "3",
@@ -62,24 +62,24 @@
   "custom/tasks": {
     "exec": "~/.config/waybar/scripts/task-list.sh",
     "interval": 1,
-    "format": "\uf0ae  {}",
+    "format": "  {}",
     "tooltip-format": "{}"
   },
   "custom/pomodoro-count": {
     "exec": "~/.config/waybar/scripts/pomo-count-today",
     "interval": 60,
-    "format": "\ue002 {}",
+    "format": " {}",
     "tooltip-format": "Pomodoros today: {}",
     "on-click-right": "/usr/bin/i3-gnome-pomodoro start"
   },
   "custom/pomodoro": {
     "exec": "/usr/bin/i3-gnome-pomodoro status --show-seconds || echo 'Idle'",
     "interval": 1,
-    "format": "\ue003 {}",
+    "format": " {}",
     "on-click": "sh -c 'pgrep -x gnome-pomodoro >/dev/null || (gnome-pomodoro & disown); /usr/bin/i3-gnome-pomodoro start'"
   },
   "custom/update": {
-    "format": "\uf021",
+    "format": "",
     "exec": "omarchy-update-available",
     "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
     "tooltip-format": "Omarchy update available",
@@ -88,29 +88,29 @@
   },
   "cpu": {
     "interval": 5,
-    "format": "\udb80\udf5b {usage}%",
+    "format": "󰍛 {usage}%",
     "on-click": "omarchy-launch-or-focus-tui btop"
   },
   "clock": {
-    "format": "\udb85\udc4d  {:%I:%M %a \uf444  \udb80\udced %d }",
-    "format-alt": "\udb80\udced {:L%d %B %Y}",
+    "format": "󱑍  {:%I:%M %a   󰃭 %d }",
+    "format-alt": "󰃭 {:L%d %B %Y}",
     "tooltip": false,
     "on-click-right": "omarchy-cmd-tzupdate"
   },
   "network": {
     "format-icons": [
-      "\udb82\udd2f",
-      "\udb82\udd1f",
-      "\udb82\udd22",
-      "\udb82\udd25",
-      "\udb82\udd28 "
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨 "
     ],
     "format": "{icon}",
     "format-wifi": "{icon}",
-    "format-ethernet": "\udb80\udc02",
-    "format-disconnected": "\udb82\udd2e",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz) \uf019 {bandwidthDownBytes} \uf093 {bandwidthUpBytes}",
-    "tooltip-format-ethernet": "\u21e3{bandwidthDownBytes}  \u21e1{bandwidthUpBytes}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)  {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
@@ -120,36 +120,36 @@
     "format": "{capacity}% {icon}",
     "format-discharging": "{icon} {capacity}%",
     "format-charging": "{icon} {capacity}%",
-    "format-plugged": "\uf1e6",
+    "format-plugged": "",
     "format-icons": {
       "charging": [
-        "\udb82\udc9c",
-        "\udb80\udc86",
-        "\udb80\udc87",
-        "\udb80\udc88",
-        "\udb82\udc9d",
-        "\udb80\udc89",
-        "\udb82\udc9e",
-        "\udb80\udc8a",
-        "\udb80\udc8b",
-        "\udb80\udc85"
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
       ],
       "default": [
-        "\udb80\udc7a",
-        "\udb80\udc7b",
-        "\udb80\udc7c",
-        "\udb80\udc7d",
-        "\udb80\udc7e",
-        "\udb80\udc7f",
-        "\udb80\udc80",
-        "\udb80\udc81",
-        "\udb80\udc82",
-        "\udb80\udc79"
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
       ]
     },
-    "format-full": "\udb80\udc85",
-    "tooltip-format-discharging": "{power:>1.0f}W\u2193 {capacity}%",
-    "tooltip-format-charging": "{power:>1.0f}W\u2191 {capacity}%",
+    "format-full": "󰂅",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
     "interval": 5,
     "on-click": "omarchy-powerprofiles-list",
     "states": {
@@ -158,10 +158,10 @@
     }
   },
   "bluetooth": {
-    "format": "\uf294 ON",
-    "format-disabled": "\udb80\udcb2",
-    "format-off": "\udb80\udcb2",
-    "format-connected": "\udb80\udcb1",
+    "format": " ON",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-connected": "󰂱",
     "tooltip-format": "Devices connected: {num_connections}",
     "on-click": "omarchy-launch-bluetooth"
   },
@@ -171,12 +171,12 @@
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 2,
-    "format-muted": "\ueee8",
+    "format-muted": "",
     "format-icons": {
       "default": [
-        "\uf026",
-        "\uf027",
-        "\uf028"
+        "",
+        "",
+        ""
       ]
     }
   },
@@ -192,7 +192,7 @@
     ]
   },
   "custom/expand-icon": {
-    "format": "\uf08b ",
+    "format": " ",
     "tooltip": false
   },
   "custom/screenrecording-indicator": {
@@ -206,38 +206,36 @@
     "spacing": 12
   },
   "memory": {
-    "format": "\uf0c9 {used}GiB",
+    "format": " {used}GiB",
     "interval": 1,
     "tooltip-format": "{percentage}%"
   },
   "custom/power": {
-    "format": "\uf011 ",
+    "format": " ",
     "on-click": "omarchy-menu system",
     "tooltip-format": "Power Menu"
   },
+
   "custom/hyprwhspr": {
-    "exec": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh status",
-    "interval": 2,
-    "return-type": "json",
-    "exec-on-event": true,
-    "format": "{}",
-    "on-click": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh toggle",
-    "on-click-right": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh start",
-    "on-click-middle": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh restart",
-    "tooltip": true
+      "exec": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh status",
+      "interval": 2,
+      "return-type": "json",
+      "exec-on-event": true,
+      "format": "{}",
+      "on-click": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh toggle",
+      "on-click-right": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh start",
+      "on-click-middle": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh restart",
+      "tooltip": true
   },
   "power-profiles-daemon": {
     "format": "{icon}",
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
-      "default": "\uf0e7",
-      "performance": "\uf0e7",
-      "balanced": "\uf24e ",
-      "power-saver": "\uf06c "
+      "default": "",
+      "performance": "",
+      "balanced": " ",
+      "power-saver": " "
     }
-  },
-  "include": [
-    "/home/nilesh/.config/waybar/hyprwhspr-module.jsonc"
-  ]
+  }
 }
