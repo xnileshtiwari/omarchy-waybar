@@ -20,6 +20,7 @@
     "custom/tasks"
   ],
   "modules-right": [
+    "custom/hyprwhspr",
     "network",
     "bluetooth",
     "tray",
@@ -27,8 +28,7 @@
     "cpu",
     "memory",
     "pulseaudio",
-    "battery",
-    "custom/hyprwhspr"
+    "battery"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
