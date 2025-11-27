@@ -27,7 +27,8 @@
     "cpu",
     "memory",
     "pulseaudio",
-    "battery"
+    "battery",
+    "custom/hyprwhspr"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
