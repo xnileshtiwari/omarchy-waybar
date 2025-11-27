@@ -1,4 +1,7 @@
 @import "../omarchy/current/theme/waybar.css";
+@import "/usr/lib/hyprwhspr/config/waybar/hyprwhspr-style.css";
+
+
 
 * {
   background-color: rgba(0, 0, 0, 0);
