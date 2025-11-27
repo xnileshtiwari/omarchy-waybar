@@ -13,12 +13,11 @@
     "clock"
   ],
   "modules-left": [
-    "hyprland/workspaces", 
-    "custom/update", 
+    "hyprland/workspaces",
+    "custom/update",
     "custom/screenrecording-indicator",
     "custom/pomodoro",
     "custom/tasks"
-
   ],
   "modules-right": [
     "network",
@@ -59,29 +58,26 @@
     "on-click-right": "xdg-terminal-exec",
     "tooltip-format": "Omarchy Menu\nSuper + O"
   },
-   
   "custom/tasks": {
-  "exec": "~/.config/waybar/scripts/task-list.sh",
-  "interval": 1,
-  "format": "  {}",
-  "tooltip-format": "{}"
+    "exec": "~/.config/waybar/scripts/task-list.sh",
+    "interval": 1,
+    "format": "  {}",
+    "tooltip-format": "{}"
   },
-  
-   "custom/pomodoro-count": {
-  "exec": "~/.config/waybar/scripts/pomo-count-today",
-  "interval": 60,
-  "format": " {}",
-  "tooltip-format": "Pomodoros today: {}",
-  "on-click-right": "/usr/bin/i3-gnome-pomodoro start"
-   },
-  
+  "custom/pomodoro-count": {
+    "exec": "~/.config/waybar/scripts/pomo-count-today",
+    "interval": 60,
+    "format": " {}",
+    "tooltip-format": "Pomodoros today: {}",
+    "on-click-right": "/usr/bin/i3-gnome-pomodoro start"
+  },
   "custom/pomodoro": {
-  "exec": "/usr/bin/i3-gnome-pomodoro status --show-seconds || echo 'Idle'",
-  "interval": 1,
-  "format": " {}",
-  "on-click": "sh -c 'pgrep -x gnome-pomodoro >/dev/null || (gnome-pomodoro & disown); /usr/bin/i3-gnome-pomodoro start'"
-   },
- "custom/update": {
+    "exec": "/usr/bin/i3-gnome-pomodoro status --show-seconds || echo 'Idle'",
+    "interval": 1,
+    "format": " {}",
+    "on-click": "sh -c 'pgrep -x gnome-pomodoro >/dev/null || (gnome-pomodoro & disown); /usr/bin/i3-gnome-pomodoro start'"
+  },
+  "custom/update": {
     "format": "",
     "exec": "omarchy-update-available",
     "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
@@ -89,7 +85,6 @@
     "signal": 7,
     "interval": 3600
   },
-
   "cpu": {
     "interval": 5,
     "format": "󰍛 {usage}%",
@@ -102,7 +97,13 @@
     "on-click-right": "omarchy-cmd-tzupdate"
   },
   "network": {
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨 "],
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨 "
+    ],
     "format": "{icon}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
@@ -120,8 +121,30 @@
     "format-charging": "{icon} {capacity}%",
     "format-plugged": "",
     "format-icons": {
-      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
     },
     "format-full": "󰂅",
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
@@ -149,7 +172,11 @@
     "scroll-step": 2,
     "format-muted": "",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     }
   },
   "group/tray-expander": {
@@ -158,7 +185,10 @@
       "transition-duration": 600,
       "children-class": "tray-group-item"
     },
-    "modules": ["custom/expand-icon", "tray"]
+    "modules": [
+      "custom/expand-icon",
+      "tray"
+    ]
   },
   "custom/expand-icon": {
     "format": " ",
@@ -185,14 +215,14 @@
     "tooltip-format": "Power Menu"
   },
   "power-profiles-daemon": {
-  "format": "{icon}",
-  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-  "tooltip": true,
-  "format-icons": {
-    "default": "",
-    "performance": "",
-    "balanced": " ",
-    "power-saver": " "
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": " ",
+      "power-saver": " "
     }
   }
 }
