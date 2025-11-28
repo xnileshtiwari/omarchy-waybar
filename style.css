@@ -1,8 +1,5 @@
 @import "../omarchy/current/theme/waybar.css";
 @import "/usr/lib/hyprwhspr/config/waybar/hyprwhspr-style.css";
-
-
-
 * {
   background-color: rgba(0, 0, 0, 0);
 
@@ -40,33 +37,65 @@
   min-width: 9px;
   border-radius: 15px;
 }
-#custom-tts {
-  background-color: @background;
-  color: @foreground;
-  min-width: 12px;
-  margin: 0 2px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 15px;
+/* === TTS MODULE STYLES === */
+
+/* The Group Container */
+#group-tts {
+    background-color: @background;
+    margin: 0 2px;
+    padding: 0 4px;
+    border-radius: 15px;
 }
 
-/* Active State (Speaking) - Matches your screenrecording-indicator active color */
-#custom-tts.speaking {
-  color: #a55555;
-  font-weight: 600;
+/* Individual buttons (Inc/Dec/Status) */
+#custom-tts-dec,
+#custom-tts-inc,
+#custom-tts-status {
+    background-color: transparent; /* Transparent inside the group */
+    color: @foreground;
+    padding: 0 6px;
+    font-size: 14px; /* Slightly larger icon for visibility */
+    margin: 0;
 }
 
-/* Inactive State (Stopped) */
-#custom-tts.stopped {
-  opacity: 0.8;
+/* Hover effects for buttons */
+#custom-tts-dec:hover,
+#custom-tts-inc:hover {
+    color: #88c0d0; /* Nord/Arch Blue on hover */
 }
 
-/* Tooltip styling matches your existing config */
-#custom-tts tooltip {
-  padding: 2px;
-  background-color: @background;
-  border-radius: 15px;
-  border: solid 1px @foreground;
+/* === STATUS STATES === */
+
+/* When Server is Offline */
+#custom-tts-status.offline {
+    color: #4c566a; /* Dimmed/Grey */
+}
+
+/* When Engine is Idle (Ready but not speaking) */
+#custom-tts-status.stopped {
+    color: @foreground;
+}
+
+/* When ACTIVELY SPEAKING */
+#custom-tts-status.speaking {
+    color: #a3be8c; /* Green (or choose #bf616a for Red) */
+    background-color: rgba(163, 190, 140, 0.2); /* Subtle green background tint */
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+/* Optional: Make the speaker icon pulse when talking */
+@keyframes pulse-tts {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+#custom-tts-status.speaking {
+    animation-name: pulse-tts;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 #custom-pomodoro-count {
   background-color: @background;
