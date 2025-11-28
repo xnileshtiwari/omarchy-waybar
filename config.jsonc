@@ -82,7 +82,7 @@
       "return-type": "json",
       "interval": 1,
       "format": "{}",
-      "on-click": "tts stop",         // Left click to Stop instantly
+      "on-click": "shutup",         // Left click to Stop instantly
       "on-click-right": "start_tts",  // Right click to start engine if offline
       "tooltip": true
   },
