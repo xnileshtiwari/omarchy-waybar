@@ -17,7 +17,8 @@
     "custom/update",
     "custom/screenrecording-indicator",
     "custom/pomodoro",
-    "custom/tasks"
+    "custom/tasks",
+    "custom/tts"
   ],
   "modules-right": [
     "custom/hyprwhspr",
@@ -65,6 +66,17 @@
     "format": "\uf0ae  {}",
     "tooltip-format": "{}"
   },
+  "custom/tts": {
+    "exec": "~/tts-local/.venv/bin/python -c \"import json, os; f='/tmp/tts_status.json'; print(json.dumps({'text': f\\\"{d['icon']} {d['speed']}x\\\", 'class': d['state'], 'tooltip': f\\\"TTS Engine\\\\nStatus: {d['state'].title()}\\\\nSpeed: {d['speed']}x\\\"} if os.path.exists(f) and (d:=json.load(open(f))) else {'text': '', 'class': 'stopped', 'tooltip': 'Engine Offline'}))\"",
+    "return-type": "json",
+    "interval": 1,
+    "format": "{}",
+    "on-click": "bash -c '~/tts-local/.venv/bin/python ~/tts-local/ctl.py stop'",
+    "on-click-right": "bash -c '~/tts-local/.venv/bin/python ~/tts-local/ctl.py speed+'",
+    "on-scroll-up": "bash -c '~/tts-local/.venv/bin/python ~/tts-local/ctl.py speed+'",
+    "on-scroll-down": "bash -c '~/tts-local/.venv/bin/python ~/tts-local/ctl.py speed-'",
+    "smooth-scrolling-threshold": 1.0
+    },
   "custom/pomodoro-count": {
     "exec": "~/.config/waybar/scripts/pomo-count-today",
     "interval": 60,
