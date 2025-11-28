@@ -18,7 +18,7 @@
     "custom/screenrecording-indicator",
     "custom/pomodoro",
     "custom/tasks",
-    "custom/tts"
+    "group/tts"
   ],
   "modules-right": [
     "custom/hyprwhspr",
@@ -66,17 +66,38 @@
     "format": "\uf0ae  {}",
     "tooltip-format": "{}"
   },
-  "custom/tts": {
-    "exec": "~/tts-local/.venv/bin/python -c \"import json, os; f='/tmp/tts_status.json'; print(json.dumps({'text': f\\\"{d['icon']} {d['speed']}x\\\", 'class': d['state'], 'tooltip': f\\\"TTS Engine\\\\nStatus: {d['state'].title()}\\\\nSpeed: {d['speed']}x\\\"} if os.path.exists(f) and (d:=json.load(open(f))) else {'text': '', 'class': 'stopped', 'tooltip': 'Engine Offline'}))\"",
-    "return-type": "json",
-    "interval": 1,
-    "format": "{}",
-    "on-click": "bash -c '~/tts-local/.venv/bin/python ~/tts-local/ctl.py stop'",
-    "on-click-right": "bash -c '~/tts-local/.venv/bin/python ~/tts-local/ctl.py speed+'",
-    "on-scroll-up": "bash -c '~/tts-local/.venv/bin/python ~/tts-local/ctl.py speed+'",
-    "on-scroll-down": "bash -c '~/tts-local/.venv/bin/python ~/tts-local/ctl.py speed-'",
-    "smooth-scrolling-threshold": 1.0
-    },
+
+  // === TTS GROUP & MODULES ===
+  "group/tts": {
+      "orientation": "horizontal",
+      "modules": [
+          "custom/tts-dec",
+          "custom/tts-status",
+          "custom/tts-inc"
+      ]
+  },
+
+  "custom/tts-status": {
+      "exec": "~/tts-local/waybar_status.sh",
+      "return-type": "json",
+      "interval": 1,
+      "format": "{}",
+      "on-click": "tts stop",         // Left click to Stop instantly
+      "on-click-right": "start_tts",  // Right click to start engine if offline
+      "tooltip": true
+  },
+
+  "custom/tts-dec": {
+      "format": "\uf048",             //  (Backward/Slower)
+      "on-click": "tts speed-",
+      "tooltip": false
+  },
+
+  "custom/tts-inc": {
+      "format": "\uf051",             //  (Forward/Faster)
+      "on-click": "tts speed+",
+      "tooltip": false
+  },
   "custom/pomodoro-count": {
     "exec": "~/.config/waybar/scripts/pomo-count-today",
     "interval": 60,
