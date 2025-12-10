@@ -83,7 +83,7 @@
       "interval": 1,
       "format": "{}",
       "on-click": "shutup",         // Left click to Stop instantly
-      "on-click-right": "start_tts",  // Right click to start engine if offline
+      "on-click-right": "~/tts-local/toggle_services.sh",  // Right click to start engine if offline
       "tooltip": true
   },
 
