@@ -164,13 +164,13 @@
 
 
 
-#battery.warning {
-    color: #cc0000 !important;
+/* Stronger selector to override imports without using !important */
+window#waybar #battery.warning {
+    color: #cc0000;
 }
 
-#battery.critical {
-    color: #ff0000 !important;
-    /* Optional: make it blink red/white when critical */
+window#waybar #battery.critical {
+    color: #ff0000;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -178,10 +178,9 @@
     animation-direction: alternate;
 }
 
-/* Define the blinking animation */
 @keyframes blink {
     to {
-        color: #ffffff !important;
+        color: #ffffff;
     }
 }
 
