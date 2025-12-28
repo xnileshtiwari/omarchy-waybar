@@ -164,18 +164,26 @@
 
 
 
-/* Stronger selector to override imports without using !important */
-window#waybar #battery.warning {
+/* Only apply red warning if NOT charging and NOT plugged in */
+window#waybar #battery.warning:not(.charging):not(.plugged) {
     color: #cc0000;
 }
 
-window#waybar #battery.critical {
+/* Only apply critical blinking if NOT charging and NOT plugged in */
+window#waybar #battery.critical:not(.charging):not(.plugged) {
     color: #ff0000;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+/* If it IS charging/plugged, force it back to normal color (white/foreground) */
+window#waybar #battery.charging,
+window#waybar #battery.plugged {
+    color: @foreground;
+    animation-name: none; /* Stop any blinking */
 }
 
 @keyframes blink {
