@@ -164,6 +164,33 @@
 #battery.warning {
     color: #cc0000;
 }
+
+
+
+
+#battery.warning {
+    color: #cc0000 !important;
+}
+
+#battery.critical {
+    color: #ff0000 !important;
+    /* Optional: make it blink red/white when critical */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Define the blinking animation */
+@keyframes blink {
+    to {
+        color: #ffffff !important;
+    }
+}
+
+
+
 #custom-pomodoro { font-weight: 600; }
 #custom-pomodoro.paused { opacity: 0.7; border-bottom: 2px solid @foreground; }
 
