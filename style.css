@@ -161,10 +161,6 @@
   padding-right: 8px;
   border-radius: 15px;
 }
-#battery.warning {
-    color: #cc0000;
-}
-
 
 
 
@@ -188,6 +184,7 @@
         color: #ffffff !important;
     }
 }
+
 
 
 
