@@ -134,7 +134,9 @@
   opacity: 0.7;
 }
 
-
+#battery.warning {
+    color: #cc0000;
+}
 
 #temperature,
 #backlight,
