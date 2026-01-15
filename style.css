@@ -242,8 +242,9 @@ tooltip label {
 
 #custom-screenrecording-indicator {
   min-width: 12px;
-  margin-left: 8.75px;
+  margin-left: 5px;
   font-size: 10px;
+  padding-bottom: 1px;
 }
 
 #custom-screenrecording-indicator.active {
@@ -263,4 +264,13 @@ tooltip label {
 #tray menu {
   background-color: @background;
   color: @foreground;
+}
+
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
 }
