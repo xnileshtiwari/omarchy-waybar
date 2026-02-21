@@ -284,7 +284,4 @@
       "power-saver": "\uf06c "
     }
   },
-  "include": [
-    "/home/nilesh/.config/waybar/hyprwhspr-module.jsonc"
-  ]
 }
