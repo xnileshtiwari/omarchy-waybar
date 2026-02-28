@@ -206,6 +206,7 @@
     "format-muted": "\ueee8",
     "format-icons": {
       "headphone": "",
+      "headset": "",
       "default": [
         "\uf026",
         "\uf027",
