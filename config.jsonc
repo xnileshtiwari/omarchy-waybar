@@ -70,9 +70,7 @@
   "group/tts": {
       "orientation": "horizontal",
       "modules": [
-          "custom/tts-dec",
-          "custom/tts-status",
-          "custom/tts-inc"
+          "custom/tts-status"
       ]
   },
 
@@ -84,18 +82,6 @@
       "on-click": "shutup",         // Left click to Stop instantly
       "on-click-right": "~/tts-local/toggle_services.sh",  // Right click to start engine if offline
       "tooltip": true
-  },
-
-  "custom/tts-dec": {
-      "format": "\uf048",             //  (Backward/Slower)
-      "on-click": "tts speed-",
-      "tooltip": false
-  },
-
-  "custom/tts-inc": {
-      "format": "\uf051",             //  (Forward/Faster)
-      "on-click": "tts speed+",
-      "tooltip": false
   },
   "custom/pomodoro-count": {
     "exec": "~/.config/waybar/scripts/pomo-count-today",
