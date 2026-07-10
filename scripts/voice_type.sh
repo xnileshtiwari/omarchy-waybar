@@ -6,7 +6,7 @@ AUDIO_FILE="/tmp/voice_type.wav"
 ENV_FILE="$HOME/code/openbook/translation_automation/.env"
 
 # Extract API Key safely
-API_KEY=$(grep -h "ELEVENLABS_API_KEY" "$ENV_FILE" | cut -d '"' -f2)
+API_KEY=$(grep "ELEVENLABS_API_KEY" "$ENV_FILE" | cut -d '"' -f2)
 
 if [ -f "$PID_FILE" ] && kill -0 $(cat "$PID_FILE") 2>/dev/null; then
     # Currently recording: Stop it
