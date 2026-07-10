@@ -16,7 +16,7 @@
     "custom/update",
     "custom/screenrecording-indicator",
     "custom/tasks",
-    "group/tts"
+    "custom/tts-status"
   ],
   "modules-right": [
     "custom/record_transcribe",
@@ -65,14 +65,7 @@
     "tooltip-format": "{}"
   },
 
-  // === TTS GROUP & MODULES ===
-  "group/tts": {
-      "orientation": "horizontal",
-      "modules": [
-          "custom/tts-status"
-      ]
-  },
-
+  // === TTS MODULE ===
   "custom/tts-status": {
       "exec": "~/tts-local/waybar_status.sh",
       "return-type": "json",
