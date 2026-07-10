@@ -24,6 +24,7 @@
     "network",
     "bluetooth",
     "tray",
+    "custom/record_transcribe",
     "power-profiles-daemon",
     "cpu",
     "memory",
@@ -269,6 +270,14 @@
     "on-click": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh toggle",
     "on-click-right": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh start",
     "on-click-middle": "/usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh restart",
+    "tooltip": true
+  },
+  "custom/record_transcribe": {
+    "exec": "~/.config/waybar/scripts/voice_type_status.sh",
+    "return-type": "json",
+    "interval": 1,
+    "format": "{}",
+    "on-click": "~/.config/waybar/scripts/voice_type.sh",
     "tooltip": true
   },
   "power-profiles-daemon": {
