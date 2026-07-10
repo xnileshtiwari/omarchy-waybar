@@ -49,8 +49,7 @@
 
 /* Individual buttons (Inc/Dec/Status) */
 #custom-tts-dec,
-#custom-tts-inc,
-#custom-tts-status {
+#custom-tts-inc {
     background-color: transparent; /* Transparent inside the group */
     color: @foreground;
     padding: 0 6px;
