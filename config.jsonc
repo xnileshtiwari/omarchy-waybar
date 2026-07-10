@@ -71,7 +71,7 @@
       "return-type": "json",
       "interval": 1,
       "format": "{}",
-      "on-click": "shutup",         // Left click to Stop instantly
+      "on-click": "~/tts-local/.venv/bin/python ~/tts-local/ctl.py stop",         // Left click to Stop instantly
       "on-click-right": "~/tts-local/toggle_services.sh",  // Right click to start engine if offline
       "tooltip": true
   },
