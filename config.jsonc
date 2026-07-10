@@ -9,14 +9,12 @@
   "margin-right": 6,
   "margin-bottom": 3,
   "modules-center": [
-    "custom/pomodoro-count",
     "clock"
   ],
   "modules-left": [
     "hyprland/workspaces",
     "custom/update",
     "custom/screenrecording-indicator",
-    "custom/pomodoro",
     "custom/tasks",
     "group/tts"
   ],
@@ -83,19 +81,6 @@
       "on-click": "shutup",         // Left click to Stop instantly
       "on-click-right": "~/tts-local/toggle_services.sh",  // Right click to start engine if offline
       "tooltip": true
-  },
-  "custom/pomodoro-count": {
-    "exec": "~/.config/waybar/scripts/pomo-count-today",
-    "interval": 60,
-    "format": "\ue002 {}",
-    "tooltip-format": "Pomodoros today: {}",
-    "on-click-right": "/usr/bin/i3-gnome-pomodoro start"
-  },
-  "custom/pomodoro": {
-    "exec": "/usr/bin/i3-gnome-pomodoro status --show-seconds || echo 'Idle'",
-    "interval": 1,
-    "format": "\ue003 {}",
-    "on-click": "sh -c 'pgrep -x gnome-pomodoro >/dev/null || (gnome-pomodoro & disown); /usr/bin/i3-gnome-pomodoro start'"
   },
   "custom/update": {
     "format": "\uf021",
