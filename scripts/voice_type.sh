@@ -15,6 +15,8 @@ if [ -f "$PID_FILE" ] && kill -0 $(cat "$PID_FILE") 2>/dev/null; then
 
     # Immediately signal Waybar to update UI to idle
     pkill -RTMIN+8 waybar
+
+    notify-send -t 2000 "🎙️ Transcribing..." "Sending audio to ElevenLabs..."
     
     RESPONSE=$(curl -s -X POST "https://api.elevenlabs.io/v1/speech-to-text" \
         -H "xi-api-key: $API_KEY" \
@@ -25,6 +27,9 @@ if [ -f "$PID_FILE" ] && kill -0 $(cat "$PID_FILE") 2>/dev/null; then
     
     if [ -n "$TEXT" ]; then
         echo -n "$TEXT" | wl-copy
+        notify-send -t 3000 "📋 Transcribed & Copied" "$TEXT"
+    else
+        notify-send -u critical "❌ Transcription failed" "$RESPONSE"
     fi
 else
     # Not recording: Start
@@ -36,4 +41,6 @@ else
     
     # Signal Waybar to update UI to recording
     pkill -RTMIN+8 waybar
+    
+    notify-send -t 1500 "🔴 Recording..." "Click the mic icon again to stop & transcribe"
 fi
