@@ -21,10 +21,10 @@
     "group/tts"
   ],
   "modules-right": [
+    "custom/record_transcribe",
     "network",
     "bluetooth",
     "tray",
-    "custom/record_transcribe",
     "power-profiles-daemon",
     "cpu",
     "memory",
@@ -273,11 +273,11 @@
     "tooltip": true
   },
   "custom/record_transcribe": {
-    "exec": "~/.config/waybar/scripts/voice_type_status.sh",
+    "exec": "/home/nilesh/.config/waybar/scripts/voice_type_status.sh",
     "return-type": "json",
     "interval": 1,
     "format": "{}",
-    "on-click": "~/.config/waybar/scripts/voice_type.sh",
+    "on-click": "/home/nilesh/.config/waybar/scripts/voice_type.sh",
     "tooltip": true
   },
   "power-profiles-daemon": {
