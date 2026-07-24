@@ -21,7 +21,7 @@ if [ -f "$PID_FILE" ] && kill -0 $(cat "$PID_FILE") 2>/dev/null; then
     RESPONSE=$(curl -s -X POST "https://api.elevenlabs.io/v1/speech-to-text" \
         -H "xi-api-key: $API_KEY" \
         -F "file=@$AUDIO_FILE" \
-        -F "model_id=scribe_v1")
+        -F "model_id=scribe_v2")
         
     TEXT=$(echo "$RESPONSE" | jq -r '.text // empty')
     
