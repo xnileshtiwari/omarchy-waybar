@@ -3,7 +3,7 @@
 # Configuration
 PID_FILE="/tmp/voice_type.pid"
 AUDIO_FILE="/tmp/voice_type.wav"
-ENV_FILE="$HOME/code/openbook/translation_automation/.env"
+ENV_FILE="$HOME/code/openbook/pipeline/.env"
 
 # Extract API Key safely
 API_KEY=$(grep "ELEVENLABS_API_KEY" "$ENV_FILE" | cut -d '"' -f2)
